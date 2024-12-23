@@ -11,6 +11,7 @@ import Contact from './components/Contact.jsx'
 import Navbar from './components/Navbar.jsx'
 import Error from './components/Error.jsx'
 import Products from './components/Products.jsx'
+import MoreInfo from './components/MoreInfo/MoreInfo.jsx'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
         path: '/products',
         loader:()=> fetch('https://jsonplaceholder.typicode.com/posts'),
         element: <Products></Products>
+      },
+      {
+        path: '/products/:productID',
+        loader:({params})=> fetch(`https://jsonplaceholder.typicode.com/posts/${params.productID}`),
+        element: <MoreInfo></MoreInfo>
       },
       {
         path: '/dashboard',
